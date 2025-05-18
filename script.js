@@ -27,7 +27,7 @@ function createGrid() {
         pixel.addEventListener('mousedown', () => {
             isDrawing = true;
             if (fillMode) {
-                floodFill(pixel);
+                fillAllPixels(pixel);
             } else {
                 fillPixel(pixel);
             }
@@ -54,55 +54,21 @@ function createGrid() {
 }
 
 function fillPixel(pixel) {
-    pixel.style.backgroundColor = selectedColor; // Заливаем цветом
+    pixel.style.backgroundColor = selectedColor;
 }
 
-function floodFill(startPixel) {
-    const targetColor = startPixel.style.backgroundColor;
-    const newColor = selectedColor;
-    const pixels = Array.from(gridContainer.children);
-    const numCols = numPixels;
-
-    function getIndex(pixel) {
-        return pixels.indexOf(pixel);
-    }
-
-    function getPixelAtIndex(index) {
-        return pixels[index];
-    }
-
-    function floodFillRecursive(pixelIndex) {
-        if (pixelIndex < 0 || pixelIndex >= pixels.length) {
-            return; // Выход за границы
+function fillAllPixels() {
+    const pixels = gridContainer.children;
+    for (let pixel of pixels) {
+        pixel.style.backgroundColor = selectedColor;
         }
-
-        const pixel = getPixelAtIndex(pixelIndex);
-
-        if (pixel.style.backgroundColor !== targetColor || pixel.style.backgroundColor === newColor) {
-            return; // Другой цвет или уже залит
-        }
-
-        pixel.style.backgroundColor = newColor;
-
-        // Рекурсивно заполняем соседние пиксели
-        floodFillRecursive(pixelIndex - numCols); // Сверху
-        floodFillRecursive(pixelIndex + numCols); // Снизу
-        floodFillRecursive(pixelIndex - 1); // Слева
-        floodFillRecursive(pixelIndex + 1); // Справа
     }
-
-    const startIndex = getIndex(startPixel);
-    floodFillRecursive(startIndex);
-}
 
 
 // Функция для создания палитры цветов
 function createColorPalette() {
     colors.forEach(color => {
-        const colorDiv = document.createElement("div");
-        colorDiv.classList.add("color");
-        colorDiv.style.backgroundColor = color;
-
+        const colorDiv = document.getElementById("color");
         colorDiv.addEventListener('click', () => {
             selectedColor = color; // Устанавливаем выбранный цвет
             document.querySelectorAll('.color, .tool').forEach(c => c.classList.remove('selected')); // Убираем выделение со всех
@@ -114,9 +80,15 @@ function createColorPalette() {
     });
 
     //Добавляем кнопку заливки
-    const fillButton = document.createElement('button');
-    fillButton.classList.add('tool');
+    const fillButton = document.getElementById('fill');
     fillButton.addEventListener('click', () => {
+        fillMode = !fillMode; // Переключаем режим заливки
+        document.querySelectorAll('.color, .tool').forEach(c => c.classList.remove('selected'));
+        fillButton.classList.add('selected');
+    });
+
+    const fillButton1 = document.getElementById('fill1');
+    fillButton1.addEventListener('click', () => {
         fillMode = !fillMode; // Переключаем режим заливки
         document.querySelectorAll('.color, .tool').forEach(c => c.classList.remove('selected'));
         fillButton.classList.add('selected');
