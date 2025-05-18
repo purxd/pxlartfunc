@@ -1,17 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="style.css" />
   <title>Pixel Grid</title>
 </head>
 <body>
   <div id="main-container">
     <div id="color-palette">
+      <div class="color" id = "color" style="background-color: red;"></div>
+      <div class="color" id = "color" style="background-color: green;"></div>
+      <div class="color" id = "color" style="background-color: blue;"></div>
+      <div class="color" id = "color" style="background-color: yellow;"></div>
+      <div class="color" id = "color" style="background-color: orange;"></div>
+      <div class="color" id = "color" style="background-color: pink;"></div>
+      <div class="color" id = "color" style="background-color: white;"></div>
+      <div class="color" id = "color" style="background-color: black;"></div>
+      <div class="color" id = "color" style="background-color: rgb(68, 68, 68);"><img class = "eraser" id = 'eraser' src="https://cdn4.iconfinder.com/data/icons/social-productivity-line-art-4/128/eraser-1024.png"/></div>
+      <button class="tool" id="fill"></button>
     </div>
-      <img class = "eraser" src="https://cdn4.iconfinder.com/data/icons/social-productivity-line-art-4/128/eraser-1024.png"/>
-      <img class="fill" src="https://cdn-icons-png.flaticon.com/512/7180/7180272.png"/>
-      <div class="save" id="download"></div>
-      <img class="disket" src="https://cdn-icons-png.flaticon.com/512/2874/2874091.png"/>
+      <div class="save"></div>
+      <img class="fill" id = "fill1" src="https://cdn-icons-png.flaticon.com/512/7180/7180272.png"/>
+      <img class="disket" id = 'download' src="https://cdn-icons-png.flaticon.com/512/2874/2874091.png"/>
     <div id="grid-container"></div>
   </div>
   <script src="script.js"></script>
