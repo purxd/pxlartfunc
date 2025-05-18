@@ -65,17 +65,14 @@ body, html {
     background-color: rgb(68, 68, 68);  
     border: 0px;
 }
-{
-    border-color: aliceblue;
-}
+
 .save{
     width: 30px;
     height: 30px;
-    cursor: pointer;
     border: 2px solid transparent; 
     background-color:rgb(68,68,68);
-    top: 495px;
-    left: 160px;
+    margin-top: 450px;
+    margin-left: 0px;
     position: absolute;
 }
 
@@ -84,15 +81,13 @@ body, html {
     margin-top:360px;
     position: absolute;
     margin-left: 5px;
+    
 }
 
 .disket{
-    position: absolute;
     width: 20px;
-    top: 500px;
-    left: 165px;
+    margin-top: 450px;
+    margin-left: 5px;
+    position: absolute;
 }
 
-.tool.selected{
-    border: aliceblue;
-}
