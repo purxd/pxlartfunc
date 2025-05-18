@@ -54,9 +54,9 @@ body, html {
 
 .eraser{
     width: 20px;
-    margin-top: 290px;
+    margin-top: 3px;
     position: absolute;
-    margin-left: 5px;
+    margin-left: 4px;
 }
 
 .tool{
@@ -64,21 +64,25 @@ body, html {
     height: 30px;
     background-color: rgb(68, 68, 68);  
     border: 0px;
+    position: absolute;
+    top: 475px;
 }
-
+#fill.selected {
+    border: 2px solid aliceblue;
+}
 .save{
     width: 30px;
     height: 30px;
     border: 2px solid transparent; 
     background-color:rgb(68,68,68);
-    margin-top: 450px;
+    margin-top: 480px;
     margin-left: 0px;
     position: absolute;
 }
 
 .fill{
     width: 20px;
-    margin-top:360px;
+    margin-top:400px;
     position: absolute;
     margin-left: 5px;
     
@@ -86,8 +90,11 @@ body, html {
 
 .disket{
     width: 20px;
-    margin-top: 450px;
+    margin-top: 480px;
     margin-left: 5px;
     position: absolute;
 }
 
+#eraser.selected{
+    border: 2px, solid, aliceblue;
+}
